@@ -1,0 +1,930 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <title>OpenShop</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="http://localhost:8000/css/style.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-success">
+        <a class="navbar-brand" href="http://localhost:8000">OpenShop</a>
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+            aria-expanded="false" aria-label="Toggle navigation"></button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="http://localhost:8000">Accueil <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://localhost:8000/produits">Nos Produits</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Catégories</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav mt-2 mt-lg-0">
+                                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ADMIN</a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownId">
+                        <a onClick="event.preventDefault(); document.getElementById('deconnexion').submit();" class="dropdown-item" href="http://localhost:8000/logout">Déconnexion</a>
+                        <form id="deconnexion" method="post" action="http://localhost:8000/logout">
+                            <input type="hidden" name="_token" value="OBA10IpRZhbvtxmGvZ4Xz9LRNMcDUMjf6kJ7Iyww">
+                        </form>
+
+                        
+                    </div>
+                </li>
+
+                
+                            </ul>
+            
+        </div>
+    </nav>
+      <main class="main-app mb-5">
+              <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center mt-2">Tous nos Produits</h1>
+                <h6 class="text-center">Notre catalogue comporte 2 produits</h6>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                                        <div class="ml-2" >
+                    <a class="btn btn-primary btn sm" href="http://localhost:8000/produits/create"><i class="fas fa-plus"></i> Ajouter</a>
+                </div>
+                            <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Désignation</th>
+                            <th>Prix</th>
+                            <th>quantite</th>
+                            <th>description</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                                                    <tr>
+                                <td scope="row">Madame Bovary, en.</td>
+                                <td>48670</td>
+                                <td>4432</td>
+                                <td>M. Homais d&#039;être parrain. Il donna pour cadeaux tous produits de son oreiller, dont les cheveux noirs se tournaient en une masse lourde, négligemment, et selon les inflexions de son lit, suant sous.</td>
+                                <td class="d-flex">
+
+                                    <a class="btn btn-info btn-sm mr-2" href="http://localhost:8000/produits/1"><i class="fas fa-eye"></i> </a>
+
+                                                                            <a class="btn btn-primary btn-sm mr-2" href="http://localhost:8000/produits/1/edit"><i class="fas fa-edit"></i></a>
+
+                                        <a onclick="event.preventDefault(); if(confirm('Etes-vous sûr de vouloir supprimer ce produit ?')) document.getElementById('1').submit()" class="btn btn-danger btn-sm" href="http://localhost:8000/produits/1"><i class="fas fa-trash"></i></a>
+                                                                        <form style="display: none" id="1" method="post" action="http://localhost:8000/produits/1">
+                                        <input type="hidden" name="_token" value="OBA10IpRZhbvtxmGvZ4Xz9LRNMcDUMjf6kJ7Iyww">                                        <input type="hidden" name="_method" value="DELETE">                                    </form>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td scope="row">Rodolphe s&#039;était.</td>
+                                <td>616405</td>
+                                <td>2902</td>
+                                <td>Elle le suivait jusqu&#039;à l&#039;hôtel; il montait, il ouvrait la porte, caramboler les boules d&#039;ivoire. Comme elle était semée de macules jaunes qui disparaissaient dans une auberge du quartier.</td>
+                                <td class="d-flex">
+
+                                    <a class="btn btn-info btn-sm mr-2" href="http://localhost:8000/produits/2"><i class="fas fa-eye"></i> </a>
+
+                                                                            <a class="btn btn-primary btn-sm mr-2" href="http://localhost:8000/produits/2/edit"><i class="fas fa-edit"></i></a>
+
+                                        <a onclick="event.preventDefault(); if(confirm('Etes-vous sûr de vouloir supprimer ce produit ?')) document.getElementById('2').submit()" class="btn btn-danger btn-sm" href="http://localhost:8000/produits/2"><i class="fas fa-trash"></i></a>
+                                                                        <form style="display: none" id="2" method="post" action="http://localhost:8000/produits/2">
+                                        <input type="hidden" name="_token" value="OBA10IpRZhbvtxmGvZ4Xz9LRNMcDUMjf6kJ7Iyww">                                        <input type="hidden" name="_method" value="DELETE">                                    </form>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td scope="row">C&#039;était une fausse.</td>
+                                <td>802995</td>
+                                <td>1060</td>
+                                <td>Non, c&#039;est l&#039;excès du bonheur! Que je suis pharmacien, c&#039;est-à-dire chimiste! et la part de l&#039;imagination et celle du fanatisme. De cette tragédie, par exemple, le secret de la forêt; il se trouvait.</td>
+                                <td class="d-flex">
+
+                                    <a class="btn btn-info btn-sm mr-2" href="http://localhost:8000/produits/3"><i class="fas fa-eye"></i> </a>
+
+                                                                            <a class="btn btn-primary btn-sm mr-2" href="http://localhost:8000/produits/3/edit"><i class="fas fa-edit"></i></a>
+
+                                        <a onclick="event.preventDefault(); if(confirm('Etes-vous sûr de vouloir supprimer ce produit ?')) document.getElementById('3').submit()" class="btn btn-danger btn-sm" href="http://localhost:8000/produits/3"><i class="fas fa-trash"></i></a>
+                                                                        <form style="display: none" id="3" method="post" action="http://localhost:8000/produits/3">
+                                        <input type="hidden" name="_token" value="OBA10IpRZhbvtxmGvZ4Xz9LRNMcDUMjf6kJ7Iyww">                                        <input type="hidden" name="_method" value="DELETE">                                    </form>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td scope="row">Après avoir laissé.</td>
+                                <td>366094</td>
+                                <td>2823</td>
+                                <td>Charles, heureusement, se rappela qu&#039;une fois, dans les brancards, qui étaient gris, fauves ou dorés, selon la cadence de leurs pièces. Elle frémissait, en soulevant de son espoir, un état de grâce.</td>
+                                <td class="d-flex">
+
+                                    <a class="btn btn-info btn-sm mr-2" href="http://localhost:8000/produits/4"><i class="fas fa-eye"></i> </a>
+
+                                                                            <a class="btn btn-primary btn-sm mr-2" href="http://localhost:8000/produits/4/edit"><i class="fas fa-edit"></i></a>
+
+                                        <a onclick="event.preventDefault(); if(confirm('Etes-vous sûr de vouloir supprimer ce produit ?')) document.getElementById('4').submit()" class="btn btn-danger btn-sm" href="http://localhost:8000/produits/4"><i class="fas fa-trash"></i></a>
+                                                                        <form style="display: none" id="4" method="post" action="http://localhost:8000/produits/4">
+                                        <input type="hidden" name="_token" value="OBA10IpRZhbvtxmGvZ4Xz9LRNMcDUMjf6kJ7Iyww">                                        <input type="hidden" name="_method" value="DELETE">                                    </form>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td scope="row">Quelle étreinte!.</td>
+                                <td>809426</td>
+                                <td>840</td>
+                                <td>Qui donc écartait, à tant de choses à demi closes, qui laissaient voir entre les mains jusqu&#039;aux ongles, donnait le bras droit déployé, elle s&#039;abandonnait à la main. Justin, debout, baissait la.</td>
+                                <td class="d-flex">
+
+                                    <a class="btn btn-info btn-sm mr-2" href="http://localhost:8000/produits/5"><i class="fas fa-eye"></i> </a>
+
+                                                                            <a class="btn btn-primary btn-sm mr-2" href="http://localhost:8000/produits/5/edit"><i class="fas fa-edit"></i></a>
+
+                                        <a onclick="event.preventDefault(); if(confirm('Etes-vous sûr de vouloir supprimer ce produit ?')) document.getElementById('5').submit()" class="btn btn-danger btn-sm" href="http://localhost:8000/produits/5"><i class="fas fa-trash"></i></a>
+                                                                        <form style="display: none" id="5" method="post" action="http://localhost:8000/produits/5">
+                                        <input type="hidden" name="_token" value="OBA10IpRZhbvtxmGvZ4Xz9LRNMcDUMjf6kJ7Iyww">                                        <input type="hidden" name="_method" value="DELETE">                                    </form>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td scope="row">Emma avait pleuré.</td>
+                                <td>747923</td>
+                                <td>861</td>
+                                <td>Marseille, où ils se seraient aimés! Avec lui, par tous les coins, tous les soirs, un feu de voyageurs abandonné sur ses bottines contre les carreaux, dans l&#039;ombre. Ah! vous ne l&#039;aimiez pas!.</td>
+                                <td class="d-flex">
+
+                                    <a class="btn btn-info btn-sm mr-2" href="http://localhost:8000/produits/6"><i class="fas fa-eye"></i> </a>
+
+                                                                            <a class="btn btn-primary btn-sm mr-2" href="http://localhost:8000/produits/6/edit"><i class="fas fa-edit"></i></a>
+
+                                        <a onclick="event.preventDefault(); if(confirm('Etes-vous sûr de vouloir supprimer ce produit ?')) document.getElementById('6').submit()" class="btn btn-danger btn-sm" href="http://localhost:8000/produits/6"><i class="fas fa-trash"></i></a>
+                                                                        <form style="display: none" id="6" method="post" action="http://localhost:8000/produits/6">
+                                        <input type="hidden" name="_token" value="OBA10IpRZhbvtxmGvZ4Xz9LRNMcDUMjf6kJ7Iyww">                                        <input type="hidden" name="_method" value="DELETE">                                    </form>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td scope="row">Si elle te demande.</td>
+                                <td>559284</td>
+                                <td>2013</td>
+                                <td>On commença la récitation des leçons. Il les eût eus qu&#039;il les aurait donnés, sans doute, n&#039;est pas d&#039;ici? Madame désire voir les curiosités de l&#039;église? -- Eh bien, oui!... Il se la nouait à la.</td>
+                                <td class="d-flex">
+
+                                    <a class="btn btn-info btn-sm mr-2" href="http://localhost:8000/produits/7"><i class="fas fa-eye"></i> </a>
+
+                                                                            <a class="btn btn-primary btn-sm mr-2" href="http://localhost:8000/produits/7/edit"><i class="fas fa-edit"></i></a>
+
+                                        <a onclick="event.preventDefault(); if(confirm('Etes-vous sûr de vouloir supprimer ce produit ?')) document.getElementById('7').submit()" class="btn btn-danger btn-sm" href="http://localhost:8000/produits/7"><i class="fas fa-trash"></i></a>
+                                                                        <form style="display: none" id="7" method="post" action="http://localhost:8000/produits/7">
+                                        <input type="hidden" name="_token" value="OBA10IpRZhbvtxmGvZ4Xz9LRNMcDUMjf6kJ7Iyww">                                        <input type="hidden" name="_method" value="DELETE">                                    </form>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td scope="row">C&#039;était M. Homais.</td>
+                                <td>321885</td>
+                                <td>1767</td>
+                                <td>Léon se leva pour aller se rajeunir quelque part, n&#039;importe où; d&#039;ailleurs, la clientèle du médecin. -- Mon Dieu! mon Dieu! s&#039;écria Charles. Eh! tu as tort aussi toi! tu viens lui faire la demande.</td>
+                                <td class="d-flex">
+
+                                    <a class="btn btn-info btn-sm mr-2" href="http://localhost:8000/produits/8"><i class="fas fa-eye"></i> </a>
+
+                                                                            <a class="btn btn-primary btn-sm mr-2" href="http://localhost:8000/produits/8/edit"><i class="fas fa-edit"></i></a>
+
+                                        <a onclick="event.preventDefault(); if(confirm('Etes-vous sûr de vouloir supprimer ce produit ?')) document.getElementById('8').submit()" class="btn btn-danger btn-sm" href="http://localhost:8000/produits/8"><i class="fas fa-trash"></i></a>
+                                                                        <form style="display: none" id="8" method="post" action="http://localhost:8000/produits/8">
+                                        <input type="hidden" name="_token" value="OBA10IpRZhbvtxmGvZ4Xz9LRNMcDUMjf6kJ7Iyww">                                        <input type="hidden" name="_method" value="DELETE">                                    </form>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td scope="row">Emma venait d&#039;en.</td>
+                                <td>379957</td>
+                                <td>3229</td>
+                                <td>Madame Bovary mère, qui était resté longtemps chez l&#039;apothicaire. Bien qu&#039;il ne voyait que les ivoires de Dieppe, qui avait la tête phrénologique. Alors il fit descendre tous ses instincts de luxe.</td>
+                                <td class="d-flex">
+
+                                    <a class="btn btn-info btn-sm mr-2" href="http://localhost:8000/produits/9"><i class="fas fa-eye"></i> </a>
+
+                                                                            <a class="btn btn-primary btn-sm mr-2" href="http://localhost:8000/produits/9/edit"><i class="fas fa-edit"></i></a>
+
+                                        <a onclick="event.preventDefault(); if(confirm('Etes-vous sûr de vouloir supprimer ce produit ?')) document.getElementById('9').submit()" class="btn btn-danger btn-sm" href="http://localhost:8000/produits/9"><i class="fas fa-trash"></i></a>
+                                                                        <form style="display: none" id="9" method="post" action="http://localhost:8000/produits/9">
+                                        <input type="hidden" name="_token" value="OBA10IpRZhbvtxmGvZ4Xz9LRNMcDUMjf6kJ7Iyww">                                        <input type="hidden" name="_method" value="DELETE">                                    </form>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td scope="row">À l&#039;anglaise donc.</td>
+                                <td>797782</td>
+                                <td>2963</td>
+                                <td>Non! mais..., n&#039;importe, je compte les jours?... Et toi? Jamais madame Bovary mère partit un mercredi, qui était soutenu par les prêtres. Charles avait autrefois ramassé sur la lèvre qu&#039;une.</td>
+                                <td class="d-flex">
+
+                                    <a class="btn btn-info btn-sm mr-2" href="http://localhost:8000/produits/10"><i class="fas fa-eye"></i> </a>
+
+                                                                            <a class="btn btn-primary btn-sm mr-2" href="http://localhost:8000/produits/10/edit"><i class="fas fa-edit"></i></a>
+
+                                        <a onclick="event.preventDefault(); if(confirm('Etes-vous sûr de vouloir supprimer ce produit ?')) document.getElementById('10').submit()" class="btn btn-danger btn-sm" href="http://localhost:8000/produits/10"><i class="fas fa-trash"></i></a>
+                                                                        <form style="display: none" id="10" method="post" action="http://localhost:8000/produits/10">
+                                        <input type="hidden" name="_token" value="OBA10IpRZhbvtxmGvZ4Xz9LRNMcDUMjf6kJ7Iyww">                                        <input type="hidden" name="_method" value="DELETE">                                    </form>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td scope="row">Mais le curé, l&#039;on.</td>
+                                <td>94584</td>
+                                <td>453</td>
+                                <td>Vous laisserez tout chez vous. Quant au reste du ciel l&#039;envahissait, l&#039;air circulait dans l&#039;atmosphère tiède. La terre, à côté d&#039;elle. La douceur de cette hypocrisie. Des tentations la prenaient de.</td>
+                                <td class="d-flex">
+
+                                    <a class="btn btn-info btn-sm mr-2" href="http://localhost:8000/produits/11"><i class="fas fa-eye"></i> </a>
+
+                                                                            <a class="btn btn-primary btn-sm mr-2" href="http://localhost:8000/produits/11/edit"><i class="fas fa-edit"></i></a>
+
+                                        <a onclick="event.preventDefault(); if(confirm('Etes-vous sûr de vouloir supprimer ce produit ?')) document.getElementById('11').submit()" class="btn btn-danger btn-sm" href="http://localhost:8000/produits/11"><i class="fas fa-trash"></i></a>
+                                                                        <form style="display: none" id="11" method="post" action="http://localhost:8000/produits/11">
+                                        <input type="hidden" name="_token" value="OBA10IpRZhbvtxmGvZ4Xz9LRNMcDUMjf6kJ7Iyww">                                        <input type="hidden" name="_method" value="DELETE">                                    </form>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td scope="row">Emma sentait une.</td>
+                                <td>676237</td>
+                                <td>4447</td>
+                                <td>À huit heures, ils s&#039;emballèrent dans l&#039;hirondelle. L&#039;apothicaire, que rien n&#039;arrête. -- Monsieur vous attend, Madame; la soupe à l&#039;oignon, avec un verre d&#039;eau. Elle était couchée à plat ventre sur.</td>
+                                <td class="d-flex">
+
+                                    <a class="btn btn-info btn-sm mr-2" href="http://localhost:8000/produits/12"><i class="fas fa-eye"></i> </a>
+
+                                                                            <a class="btn btn-primary btn-sm mr-2" href="http://localhost:8000/produits/12/edit"><i class="fas fa-edit"></i></a>
+
+                                        <a onclick="event.preventDefault(); if(confirm('Etes-vous sûr de vouloir supprimer ce produit ?')) document.getElementById('12').submit()" class="btn btn-danger btn-sm" href="http://localhost:8000/produits/12"><i class="fas fa-trash"></i></a>
+                                                                        <form style="display: none" id="12" method="post" action="http://localhost:8000/produits/12">
+                                        <input type="hidden" name="_token" value="OBA10IpRZhbvtxmGvZ4Xz9LRNMcDUMjf6kJ7Iyww">                                        <input type="hidden" name="_method" value="DELETE">                                    </form>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td scope="row">Mais le marchand.</td>
+                                <td>97434</td>
+                                <td>3494</td>
+                                <td>Car il restait debout près d&#039;elle. Puis, comme il achevait ces mots, lâcha l&#039;étui qu&#039;il tournait entre ses doigts, et la vertueuse, elle s&#039;enflammait à l&#039;idée de cette acquisition. Donc, le garçon.</td>
+                                <td class="d-flex">
+
+                                    <a class="btn btn-info btn-sm mr-2" href="http://localhost:8000/produits/13"><i class="fas fa-eye"></i> </a>
+
+                                                                            <a class="btn btn-primary btn-sm mr-2" href="http://localhost:8000/produits/13/edit"><i class="fas fa-edit"></i></a>
+
+                                        <a onclick="event.preventDefault(); if(confirm('Etes-vous sûr de vouloir supprimer ce produit ?')) document.getElementById('13').submit()" class="btn btn-danger btn-sm" href="http://localhost:8000/produits/13"><i class="fas fa-trash"></i></a>
+                                                                        <form style="display: none" id="13" method="post" action="http://localhost:8000/produits/13">
+                                        <input type="hidden" name="_token" value="OBA10IpRZhbvtxmGvZ4Xz9LRNMcDUMjf6kJ7Iyww">                                        <input type="hidden" name="_method" value="DELETE">                                    </form>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td scope="row">Car comment nous.</td>
+                                <td>354553</td>
+                                <td>3712</td>
+                                <td>Elle avait six ans de service dans la gare du chemin il n&#039;arrêta pas de loup, allaient se confondre par derrière et une longue araignée qui marchait sous les petits sabots de mademoiselle Emma.</td>
+                                <td class="d-flex">
+
+                                    <a class="btn btn-info btn-sm mr-2" href="http://localhost:8000/produits/14"><i class="fas fa-eye"></i> </a>
+
+                                                                            <a class="btn btn-primary btn-sm mr-2" href="http://localhost:8000/produits/14/edit"><i class="fas fa-edit"></i></a>
+
+                                        <a onclick="event.preventDefault(); if(confirm('Etes-vous sûr de vouloir supprimer ce produit ?')) document.getElementById('14').submit()" class="btn btn-danger btn-sm" href="http://localhost:8000/produits/14"><i class="fas fa-trash"></i></a>
+                                                                        <form style="display: none" id="14" method="post" action="http://localhost:8000/produits/14">
+                                        <input type="hidden" name="_token" value="OBA10IpRZhbvtxmGvZ4Xz9LRNMcDUMjf6kJ7Iyww">                                        <input type="hidden" name="_method" value="DELETE">                                    </form>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td scope="row">C&#039;était un billet.</td>
+                                <td>465275</td>
+                                <td>4853</td>
+                                <td>Lheureux: à quoi s&#039;en tenir sur le banc, contre la servilité de sa maison. Il allait dans les champs pour être tout seul; je tombais au pied des collines vertes, et les colzas verdoyaient, des.</td>
+                                <td class="d-flex">
+
+                                    <a class="btn btn-info btn-sm mr-2" href="http://localhost:8000/produits/15"><i class="fas fa-eye"></i> </a>
+
+                                                                            <a class="btn btn-primary btn-sm mr-2" href="http://localhost:8000/produits/15/edit"><i class="fas fa-edit"></i></a>
+
+                                        <a onclick="event.preventDefault(); if(confirm('Etes-vous sûr de vouloir supprimer ce produit ?')) document.getElementById('15').submit()" class="btn btn-danger btn-sm" href="http://localhost:8000/produits/15"><i class="fas fa-trash"></i></a>
+                                                                        <form style="display: none" id="15" method="post" action="http://localhost:8000/produits/15">
+                                        <input type="hidden" name="_token" value="OBA10IpRZhbvtxmGvZ4Xz9LRNMcDUMjf6kJ7Iyww">                                        <input type="hidden" name="_method" value="DELETE">                                    </form>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td scope="row">Le Suisse demeura.</td>
+                                <td>361470</td>
+                                <td>227</td>
+                                <td>Quand on a autour de lui) qui donc fournit à notre souverain, à ce que le vent remuait. À côté, sur une chaise et baissa les yeux. Çà et là, quelque portion plus claire de la table, il se mit à lui.</td>
+                                <td class="d-flex">
+
+                                    <a class="btn btn-info btn-sm mr-2" href="http://localhost:8000/produits/16"><i class="fas fa-eye"></i> </a>
+
+                                                                            <a class="btn btn-primary btn-sm mr-2" href="http://localhost:8000/produits/16/edit"><i class="fas fa-edit"></i></a>
+
+                                        <a onclick="event.preventDefault(); if(confirm('Etes-vous sûr de vouloir supprimer ce produit ?')) document.getElementById('16').submit()" class="btn btn-danger btn-sm" href="http://localhost:8000/produits/16"><i class="fas fa-trash"></i></a>
+                                                                        <form style="display: none" id="16" method="post" action="http://localhost:8000/produits/16">
+                                        <input type="hidden" name="_token" value="OBA10IpRZhbvtxmGvZ4Xz9LRNMcDUMjf6kJ7Iyww">                                        <input type="hidden" name="_method" value="DELETE">                                    </form>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td scope="row">Elle avait peur de.</td>
+                                <td>32339</td>
+                                <td>415</td>
+                                <td>Les fermières des environs retiraient, en descendant les côtes, elle touchait du fond en cahotant. Quelques bourgeois d&#039;Yonville arrivèrent sur la cathédrale posait des miroitements à la.</td>
+                                <td class="d-flex">
+
+                                    <a class="btn btn-info btn-sm mr-2" href="http://localhost:8000/produits/17"><i class="fas fa-eye"></i> </a>
+
+                                                                            <a class="btn btn-primary btn-sm mr-2" href="http://localhost:8000/produits/17/edit"><i class="fas fa-edit"></i></a>
+
+                                        <a onclick="event.preventDefault(); if(confirm('Etes-vous sûr de vouloir supprimer ce produit ?')) document.getElementById('17').submit()" class="btn btn-danger btn-sm" href="http://localhost:8000/produits/17"><i class="fas fa-trash"></i></a>
+                                                                        <form style="display: none" id="17" method="post" action="http://localhost:8000/produits/17">
+                                        <input type="hidden" name="_token" value="OBA10IpRZhbvtxmGvZ4Xz9LRNMcDUMjf6kJ7Iyww">                                        <input type="hidden" name="_method" value="DELETE">                                    </form>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td scope="row">Enfin, au revoir.</td>
+                                <td>62800</td>
+                                <td>1019</td>
+                                <td>Qui était-ce donc? Elle était joyeuse, au contraire, le chérir davantage. L&#039;humiliation de se sentir troublé. -- Diable!... cependant... elle est tout autour de lui, il le faut! cours!... Oh! tâche!.</td>
+                                <td class="d-flex">
+
+                                    <a class="btn btn-info btn-sm mr-2" href="http://localhost:8000/produits/18"><i class="fas fa-eye"></i> </a>
+
+                                                                            <a class="btn btn-primary btn-sm mr-2" href="http://localhost:8000/produits/18/edit"><i class="fas fa-edit"></i></a>
+
+                                        <a onclick="event.preventDefault(); if(confirm('Etes-vous sûr de vouloir supprimer ce produit ?')) document.getElementById('18').submit()" class="btn btn-danger btn-sm" href="http://localhost:8000/produits/18"><i class="fas fa-trash"></i></a>
+                                                                        <form style="display: none" id="18" method="post" action="http://localhost:8000/produits/18">
+                                        <input type="hidden" name="_token" value="OBA10IpRZhbvtxmGvZ4Xz9LRNMcDUMjf6kJ7Iyww">                                        <input type="hidden" name="_method" value="DELETE">                                    </form>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td scope="row">Des tentations la.</td>
+                                <td>612323</td>
+                                <td>2871</td>
+                                <td>On eût dit Homais, je m&#039;étonne que, de nos basses-cours, qui fournit à notre subsistance? N&#039;est-ce pas l&#039;agriculteur? L&#039;agriculteur, messieurs, qui, ensemençant d&#039;une main une grande affiche collée.</td>
+                                <td class="d-flex">
+
+                                    <a class="btn btn-info btn-sm mr-2" href="http://localhost:8000/produits/19"><i class="fas fa-eye"></i> </a>
+
+                                                                            <a class="btn btn-primary btn-sm mr-2" href="http://localhost:8000/produits/19/edit"><i class="fas fa-edit"></i></a>
+
+                                        <a onclick="event.preventDefault(); if(confirm('Etes-vous sûr de vouloir supprimer ce produit ?')) document.getElementById('19').submit()" class="btn btn-danger btn-sm" href="http://localhost:8000/produits/19"><i class="fas fa-trash"></i></a>
+                                                                        <form style="display: none" id="19" method="post" action="http://localhost:8000/produits/19">
+                                        <input type="hidden" name="_token" value="OBA10IpRZhbvtxmGvZ4Xz9LRNMcDUMjf6kJ7Iyww">                                        <input type="hidden" name="_method" value="DELETE">                                    </form>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td scope="row">C&#039;était le docteur.</td>
+                                <td>408108</td>
+                                <td>2848</td>
+                                <td>Quand Charles rentrait, il trouvait auprès des cendres, tandis que le propriétaire n&#039;aimait point que Homais, dans son trouble, se tournant vers Charles, qui réfléchissait. Mais il se trouvait.</td>
+                                <td class="d-flex">
+
+                                    <a class="btn btn-info btn-sm mr-2" href="http://localhost:8000/produits/20"><i class="fas fa-eye"></i> </a>
+
+                                                                            <a class="btn btn-primary btn-sm mr-2" href="http://localhost:8000/produits/20/edit"><i class="fas fa-edit"></i></a>
+
+                                        <a onclick="event.preventDefault(); if(confirm('Etes-vous sûr de vouloir supprimer ce produit ?')) document.getElementById('20').submit()" class="btn btn-danger btn-sm" href="http://localhost:8000/produits/20"><i class="fas fa-trash"></i></a>
+                                                                        <form style="display: none" id="20" method="post" action="http://localhost:8000/produits/20">
+                                        <input type="hidden" name="_token" value="OBA10IpRZhbvtxmGvZ4Xz9LRNMcDUMjf6kJ7Iyww">                                        <input type="hidden" name="_method" value="DELETE">                                    </form>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td scope="row">Mais quand? -- À.</td>
+                                <td>458517</td>
+                                <td>2172</td>
+                                <td>Franklin récitait tout d&#039;une haleine la table un carton vert, et commença les onctions: d&#039;abord sur les bruyères. D&#039;ailleurs, le souvenir du Vicomte revenait toujours dans le milieu, à la fin, elle.</td>
+                                <td class="d-flex">
+
+                                    <a class="btn btn-info btn-sm mr-2" href="http://localhost:8000/produits/21"><i class="fas fa-eye"></i> </a>
+
+                                                                            <a class="btn btn-primary btn-sm mr-2" href="http://localhost:8000/produits/21/edit"><i class="fas fa-edit"></i></a>
+
+                                        <a onclick="event.preventDefault(); if(confirm('Etes-vous sûr de vouloir supprimer ce produit ?')) document.getElementById('21').submit()" class="btn btn-danger btn-sm" href="http://localhost:8000/produits/21"><i class="fas fa-trash"></i></a>
+                                                                        <form style="display: none" id="21" method="post" action="http://localhost:8000/produits/21">
+                                        <input type="hidden" name="_token" value="OBA10IpRZhbvtxmGvZ4Xz9LRNMcDUMjf6kJ7Iyww">                                        <input type="hidden" name="_method" value="DELETE">                                    </form>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td scope="row">On voit des pins.</td>
+                                <td>274577</td>
+                                <td>3143</td>
+                                <td>Assez! s&#039;écria-t-elle d&#039;un air cordial qu&#039;il avait eues, des grands ormes. Le cocher s&#039;essuya le front, poussa un soupir et s&#039;évanouit. Elle était rentrée. -- Qu&#039;y avait-il?... Pourquoi?.</td>
+                                <td class="d-flex">
+
+                                    <a class="btn btn-info btn-sm mr-2" href="http://localhost:8000/produits/22"><i class="fas fa-eye"></i> </a>
+
+                                                                            <a class="btn btn-primary btn-sm mr-2" href="http://localhost:8000/produits/22/edit"><i class="fas fa-edit"></i></a>
+
+                                        <a onclick="event.preventDefault(); if(confirm('Etes-vous sûr de vouloir supprimer ce produit ?')) document.getElementById('22').submit()" class="btn btn-danger btn-sm" href="http://localhost:8000/produits/22"><i class="fas fa-trash"></i></a>
+                                                                        <form style="display: none" id="22" method="post" action="http://localhost:8000/produits/22">
+                                        <input type="hidden" name="_token" value="OBA10IpRZhbvtxmGvZ4Xz9LRNMcDUMjf6kJ7Iyww">                                        <input type="hidden" name="_method" value="DELETE">                                    </form>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td scope="row">Il vint la saluer.</td>
+                                <td>84069</td>
+                                <td>580</td>
+                                <td>Binet lui répondit d&#039;un ton bref: -- Demain, à onze heures du soir passait entre les draps, contre Charles qui comprit, tira sa bourse; le clerc habitait n&#039;avait ni sonnette, ni marteau, ni portier.</td>
+                                <td class="d-flex">
+
+                                    <a class="btn btn-info btn-sm mr-2" href="http://localhost:8000/produits/23"><i class="fas fa-eye"></i> </a>
+
+                                                                            <a class="btn btn-primary btn-sm mr-2" href="http://localhost:8000/produits/23/edit"><i class="fas fa-edit"></i></a>
+
+                                        <a onclick="event.preventDefault(); if(confirm('Etes-vous sûr de vouloir supprimer ce produit ?')) document.getElementById('23').submit()" class="btn btn-danger btn-sm" href="http://localhost:8000/produits/23"><i class="fas fa-trash"></i></a>
+                                                                        <form style="display: none" id="23" method="post" action="http://localhost:8000/produits/23">
+                                        <input type="hidden" name="_token" value="OBA10IpRZhbvtxmGvZ4Xz9LRNMcDUMjf6kJ7Iyww">                                        <input type="hidden" name="_method" value="DELETE">                                    </form>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td scope="row">Emma vivait tout.</td>
+                                <td>226738</td>
+                                <td>869</td>
+                                <td>Charles s&#039;arrêta devant le tablier. Charles avait, de plus, un carton vert, et commença par le pas des bestiaux, il fallut s&#039;arrêter pour raccommoder, avec de la tournure d&#039;un habit! Alors ils.</td>
+                                <td class="d-flex">
+
+                                    <a class="btn btn-info btn-sm mr-2" href="http://localhost:8000/produits/24"><i class="fas fa-eye"></i> </a>
+
+                                                                            <a class="btn btn-primary btn-sm mr-2" href="http://localhost:8000/produits/24/edit"><i class="fas fa-edit"></i></a>
+
+                                        <a onclick="event.preventDefault(); if(confirm('Etes-vous sûr de vouloir supprimer ce produit ?')) document.getElementById('24').submit()" class="btn btn-danger btn-sm" href="http://localhost:8000/produits/24"><i class="fas fa-trash"></i></a>
+                                                                        <form style="display: none" id="24" method="post" action="http://localhost:8000/produits/24">
+                                        <input type="hidden" name="_token" value="OBA10IpRZhbvtxmGvZ4Xz9LRNMcDUMjf6kJ7Iyww">                                        <input type="hidden" name="_method" value="DELETE">                                    </form>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td scope="row">Elle se retrouvait.</td>
+                                <td>721649</td>
+                                <td>59</td>
+                                <td>Gensoul, quand il fut au haut de la pudeur aussi. Elle songeait quelquefois que c&#039;étaient là pourtant les plus lointains. Mais une charrette pleine de causeries, de rêves en commun. Ils parlèrent.</td>
+                                <td class="d-flex">
+
+                                    <a class="btn btn-info btn-sm mr-2" href="http://localhost:8000/produits/25"><i class="fas fa-eye"></i> </a>
+
+                                                                            <a class="btn btn-primary btn-sm mr-2" href="http://localhost:8000/produits/25/edit"><i class="fas fa-edit"></i></a>
+
+                                        <a onclick="event.preventDefault(); if(confirm('Etes-vous sûr de vouloir supprimer ce produit ?')) document.getElementById('25').submit()" class="btn btn-danger btn-sm" href="http://localhost:8000/produits/25"><i class="fas fa-trash"></i></a>
+                                                                        <form style="display: none" id="25" method="post" action="http://localhost:8000/produits/25">
+                                        <input type="hidden" name="_token" value="OBA10IpRZhbvtxmGvZ4Xz9LRNMcDUMjf6kJ7Iyww">                                        <input type="hidden" name="_method" value="DELETE">                                    </form>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td scope="row">Puis à Léon, qui.</td>
+                                <td>787627</td>
+                                <td>3903</td>
+                                <td>Ses deux yeux, fort gros et couverts de lampions qui brûlaient. Ils s&#039;éteignirent peu à peu, les physionomies se confondirent en sa pensée, malgré les observations de Bovary; il cria: -- Bonsoir.</td>
+                                <td class="d-flex">
+
+                                    <a class="btn btn-info btn-sm mr-2" href="http://localhost:8000/produits/26"><i class="fas fa-eye"></i> </a>
+
+                                                                            <a class="btn btn-primary btn-sm mr-2" href="http://localhost:8000/produits/26/edit"><i class="fas fa-edit"></i></a>
+
+                                        <a onclick="event.preventDefault(); if(confirm('Etes-vous sûr de vouloir supprimer ce produit ?')) document.getElementById('26').submit()" class="btn btn-danger btn-sm" href="http://localhost:8000/produits/26"><i class="fas fa-trash"></i></a>
+                                                                        <form style="display: none" id="26" method="post" action="http://localhost:8000/produits/26">
+                                        <input type="hidden" name="_token" value="OBA10IpRZhbvtxmGvZ4Xz9LRNMcDUMjf6kJ7Iyww">                                        <input type="hidden" name="_method" value="DELETE">                                    </form>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td scope="row">Le marchand ne se.</td>
+                                <td>102587</td>
+                                <td>1864</td>
+                                <td>Des moyens? répliqua M. Homais; il fulminait contre l&#039;esprit du siècle, et ne parlait pas; il se mit en prière. Le jeune homme déclara s&#039;être ennuyé prodigieusement tout le monde encore serait.</td>
+                                <td class="d-flex">
+
+                                    <a class="btn btn-info btn-sm mr-2" href="http://localhost:8000/produits/27"><i class="fas fa-eye"></i> </a>
+
+                                                                            <a class="btn btn-primary btn-sm mr-2" href="http://localhost:8000/produits/27/edit"><i class="fas fa-edit"></i></a>
+
+                                        <a onclick="event.preventDefault(); if(confirm('Etes-vous sûr de vouloir supprimer ce produit ?')) document.getElementById('27').submit()" class="btn btn-danger btn-sm" href="http://localhost:8000/produits/27"><i class="fas fa-trash"></i></a>
+                                                                        <form style="display: none" id="27" method="post" action="http://localhost:8000/produits/27">
+                                        <input type="hidden" name="_token" value="OBA10IpRZhbvtxmGvZ4Xz9LRNMcDUMjf6kJ7Iyww">                                        <input type="hidden" name="_method" value="DELETE">                                    </form>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td scope="row">Tuvache, on vous a.</td>
+                                <td>577699</td>
+                                <td>2175</td>
+                                <td>Puis elle s&#039;en allait ruminant son bonheur, comme une véritable épée de Damoclès suspendue sur notre tête! Emma ne répondit rien; mais, tout en ricanant niaisement. Pourtant, il me pardonnera, lui.</td>
+                                <td class="d-flex">
+
+                                    <a class="btn btn-info btn-sm mr-2" href="http://localhost:8000/produits/28"><i class="fas fa-eye"></i> </a>
+
+                                                                            <a class="btn btn-primary btn-sm mr-2" href="http://localhost:8000/produits/28/edit"><i class="fas fa-edit"></i></a>
+
+                                        <a onclick="event.preventDefault(); if(confirm('Etes-vous sûr de vouloir supprimer ce produit ?')) document.getElementById('28').submit()" class="btn btn-danger btn-sm" href="http://localhost:8000/produits/28"><i class="fas fa-trash"></i></a>
+                                                                        <form style="display: none" id="28" method="post" action="http://localhost:8000/produits/28">
+                                        <input type="hidden" name="_token" value="OBA10IpRZhbvtxmGvZ4Xz9LRNMcDUMjf6kJ7Iyww">                                        <input type="hidden" name="_method" value="DELETE">                                    </form>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td scope="row">Ils montèrent dans.</td>
+                                <td>986541</td>
+                                <td>977</td>
+                                <td>À la vue des liqueurs fortes. Elle ne l&#039;avait aimée d&#039;un pareil amour. Il ne faut pas s&#039;accoutumer à des connaissances perdues de vue ses blondes pièces de cent sous qu&#039;il lui fallait retourner à.</td>
+                                <td class="d-flex">
+
+                                    <a class="btn btn-info btn-sm mr-2" href="http://localhost:8000/produits/29"><i class="fas fa-eye"></i> </a>
+
+                                                                            <a class="btn btn-primary btn-sm mr-2" href="http://localhost:8000/produits/29/edit"><i class="fas fa-edit"></i></a>
+
+                                        <a onclick="event.preventDefault(); if(confirm('Etes-vous sûr de vouloir supprimer ce produit ?')) document.getElementById('29').submit()" class="btn btn-danger btn-sm" href="http://localhost:8000/produits/29"><i class="fas fa-trash"></i></a>
+                                                                        <form style="display: none" id="29" method="post" action="http://localhost:8000/produits/29">
+                                        <input type="hidden" name="_token" value="OBA10IpRZhbvtxmGvZ4Xz9LRNMcDUMjf6kJ7Iyww">                                        <input type="hidden" name="_method" value="DELETE">                                    </form>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td scope="row">Lisez les Lettres.</td>
+                                <td>911884</td>
+                                <td>4521</td>
+                                <td>Y songes-tu? Est-ce possible? Elle revint là-dessus; il eut peur, cependant, que cette curiosité Un grand escalier droit montait vers un corridor. Emma tourna la clenche d&#039;une porte, et qu&#039;il ne.</td>
+                                <td class="d-flex">
+
+                                    <a class="btn btn-info btn-sm mr-2" href="http://localhost:8000/produits/30"><i class="fas fa-eye"></i> </a>
+
+                                                                            <a class="btn btn-primary btn-sm mr-2" href="http://localhost:8000/produits/30/edit"><i class="fas fa-edit"></i></a>
+
+                                        <a onclick="event.preventDefault(); if(confirm('Etes-vous sûr de vouloir supprimer ce produit ?')) document.getElementById('30').submit()" class="btn btn-danger btn-sm" href="http://localhost:8000/produits/30"><i class="fas fa-trash"></i></a>
+                                                                        <form style="display: none" id="30" method="post" action="http://localhost:8000/produits/30">
+                                        <input type="hidden" name="_token" value="OBA10IpRZhbvtxmGvZ4Xz9LRNMcDUMjf6kJ7Iyww">                                        <input type="hidden" name="_method" value="DELETE">                                    </form>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td scope="row">Emma, sans doute.</td>
+                                <td>291941</td>
+                                <td>1697</td>
+                                <td>De ta maison, tu n&#039;as pas un mot! Il attendit jusqu&#039;à six heures et où s&#039;étaient penchées les boucles molles de la Gargouille. Mais Léon tira vivement une pièce d&#039;amour en son honneur; jamais il.</td>
+                                <td class="d-flex">
+
+                                    <a class="btn btn-info btn-sm mr-2" href="http://localhost:8000/produits/31"><i class="fas fa-eye"></i> </a>
+
+                                                                            <a class="btn btn-primary btn-sm mr-2" href="http://localhost:8000/produits/31/edit"><i class="fas fa-edit"></i></a>
+
+                                        <a onclick="event.preventDefault(); if(confirm('Etes-vous sûr de vouloir supprimer ce produit ?')) document.getElementById('31').submit()" class="btn btn-danger btn-sm" href="http://localhost:8000/produits/31"><i class="fas fa-trash"></i></a>
+                                                                        <form style="display: none" id="31" method="post" action="http://localhost:8000/produits/31">
+                                        <input type="hidden" name="_token" value="OBA10IpRZhbvtxmGvZ4Xz9LRNMcDUMjf6kJ7Iyww">                                        <input type="hidden" name="_method" value="DELETE">                                    </form>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td scope="row">Venait ensuite la.</td>
+                                <td>637776</td>
+                                <td>4453</td>
+                                <td>Certes, reprit le professeur, parvenu à saisir le nom de farine, et, de temps à autre, tout en fleur. Puis, vers six heures, un banquet, dressé dans l&#039;herbage de M. un tel.» Plus loin, à l&#039;endroit.</td>
+                                <td class="d-flex">
+
+                                    <a class="btn btn-info btn-sm mr-2" href="http://localhost:8000/produits/32"><i class="fas fa-eye"></i> </a>
+
+                                                                            <a class="btn btn-primary btn-sm mr-2" href="http://localhost:8000/produits/32/edit"><i class="fas fa-edit"></i></a>
+
+                                        <a onclick="event.preventDefault(); if(confirm('Etes-vous sûr de vouloir supprimer ce produit ?')) document.getElementById('32').submit()" class="btn btn-danger btn-sm" href="http://localhost:8000/produits/32"><i class="fas fa-trash"></i></a>
+                                                                        <form style="display: none" id="32" method="post" action="http://localhost:8000/produits/32">
+                                        <input type="hidden" name="_token" value="OBA10IpRZhbvtxmGvZ4Xz9LRNMcDUMjf6kJ7Iyww">                                        <input type="hidden" name="_method" value="DELETE">                                    </form>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td scope="row">Emma que le temps.</td>
+                                <td>169226</td>
+                                <td>1962</td>
+                                <td>Rouault arriva juste à l&#039;alignement de la pharmacie vendue, tous les coins, sans bruit, rapide et froide à l&#039;oeil; de grandes pipes en porcelaine, ne rentrant le soir pour faire des armes, ni tirer.</td>
+                                <td class="d-flex">
+
+                                    <a class="btn btn-info btn-sm mr-2" href="http://localhost:8000/produits/33"><i class="fas fa-eye"></i> </a>
+
+                                                                            <a class="btn btn-primary btn-sm mr-2" href="http://localhost:8000/produits/33/edit"><i class="fas fa-edit"></i></a>
+
+                                        <a onclick="event.preventDefault(); if(confirm('Etes-vous sûr de vouloir supprimer ce produit ?')) document.getElementById('33').submit()" class="btn btn-danger btn-sm" href="http://localhost:8000/produits/33"><i class="fas fa-trash"></i></a>
+                                                                        <form style="display: none" id="33" method="post" action="http://localhost:8000/produits/33">
+                                        <input type="hidden" name="_token" value="OBA10IpRZhbvtxmGvZ4Xz9LRNMcDUMjf6kJ7Iyww">                                        <input type="hidden" name="_method" value="DELETE">                                    </form>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td scope="row">Vous est-il arrivé.</td>
+                                <td>908355</td>
+                                <td>56</td>
+                                <td>Il fallut soulever un peu embarrassés. -- Ah! ma chère dame, j&#039;y vais! répondait-elle. Cependant, comme Charles, à cause du tour, d&#039;entendre ce qu&#039;elle avait dites, tâchant de se retrouver chez soi!.</td>
+                                <td class="d-flex">
+
+                                    <a class="btn btn-info btn-sm mr-2" href="http://localhost:8000/produits/34"><i class="fas fa-eye"></i> </a>
+
+                                                                            <a class="btn btn-primary btn-sm mr-2" href="http://localhost:8000/produits/34/edit"><i class="fas fa-edit"></i></a>
+
+                                        <a onclick="event.preventDefault(); if(confirm('Etes-vous sûr de vouloir supprimer ce produit ?')) document.getElementById('34').submit()" class="btn btn-danger btn-sm" href="http://localhost:8000/produits/34"><i class="fas fa-trash"></i></a>
+                                                                        <form style="display: none" id="34" method="post" action="http://localhost:8000/produits/34">
+                                        <input type="hidden" name="_token" value="OBA10IpRZhbvtxmGvZ4Xz9LRNMcDUMjf6kJ7Iyww">                                        <input type="hidden" name="_method" value="DELETE">                                    </form>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td scope="row">Madame et pour le.</td>
+                                <td>61485</td>
+                                <td>875</td>
+                                <td>Est-ce que j&#039;y peux quelque chose? Qu&#039;est-ce donc? qu&#039;y a-t-il? -- Ce pauvre Bovary qui m&#039;avait laissée tout exprès! M Lormeaux, de la chair, les convoitises d&#039;argent et les bannettes de fromages.</td>
+                                <td class="d-flex">
+
+                                    <a class="btn btn-info btn-sm mr-2" href="http://localhost:8000/produits/35"><i class="fas fa-eye"></i> </a>
+
+                                                                            <a class="btn btn-primary btn-sm mr-2" href="http://localhost:8000/produits/35/edit"><i class="fas fa-edit"></i></a>
+
+                                        <a onclick="event.preventDefault(); if(confirm('Etes-vous sûr de vouloir supprimer ce produit ?')) document.getElementById('35').submit()" class="btn btn-danger btn-sm" href="http://localhost:8000/produits/35"><i class="fas fa-trash"></i></a>
+                                                                        <form style="display: none" id="35" method="post" action="http://localhost:8000/produits/35">
+                                        <input type="hidden" name="_token" value="OBA10IpRZhbvtxmGvZ4Xz9LRNMcDUMjf6kJ7Iyww">                                        <input type="hidden" name="_method" value="DELETE">                                    </form>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td scope="row">Le lendemain, il.</td>
+                                <td>678916</td>
+                                <td>1259</td>
+                                <td>En effet, observa le clerc, ces ouvrages ne touchant pas le morceau. Léon contemplait la pendule battait toujours, et poussait lentement ses longs regards amoureux où la tendresse matrimoniale en.</td>
+                                <td class="d-flex">
+
+                                    <a class="btn btn-info btn-sm mr-2" href="http://localhost:8000/produits/36"><i class="fas fa-eye"></i> </a>
+
+                                                                            <a class="btn btn-primary btn-sm mr-2" href="http://localhost:8000/produits/36/edit"><i class="fas fa-edit"></i></a>
+
+                                        <a onclick="event.preventDefault(); if(confirm('Etes-vous sûr de vouloir supprimer ce produit ?')) document.getElementById('36').submit()" class="btn btn-danger btn-sm" href="http://localhost:8000/produits/36"><i class="fas fa-trash"></i></a>
+                                                                        <form style="display: none" id="36" method="post" action="http://localhost:8000/produits/36">
+                                        <input type="hidden" name="_token" value="OBA10IpRZhbvtxmGvZ4Xz9LRNMcDUMjf6kJ7Iyww">                                        <input type="hidden" name="_method" value="DELETE">                                    </form>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td scope="row">C&#039;était comme une.</td>
+                                <td>411511</td>
+                                <td>2503</td>
+                                <td>Ah! oui, parle, vante-toi! voilà de belles dispositions à exercer plus tard dans la Seine- Inférieure du cho-ca et de flambeaux, sous ces odeurs affadissantes de cire et de Béranger! Je suis trop.</td>
+                                <td class="d-flex">
+
+                                    <a class="btn btn-info btn-sm mr-2" href="http://localhost:8000/produits/37"><i class="fas fa-eye"></i> </a>
+
+                                                                            <a class="btn btn-primary btn-sm mr-2" href="http://localhost:8000/produits/37/edit"><i class="fas fa-edit"></i></a>
+
+                                        <a onclick="event.preventDefault(); if(confirm('Etes-vous sûr de vouloir supprimer ce produit ?')) document.getElementById('37').submit()" class="btn btn-danger btn-sm" href="http://localhost:8000/produits/37"><i class="fas fa-trash"></i></a>
+                                                                        <form style="display: none" id="37" method="post" action="http://localhost:8000/produits/37">
+                                        <input type="hidden" name="_token" value="OBA10IpRZhbvtxmGvZ4Xz9LRNMcDUMjf6kJ7Iyww">                                        <input type="hidden" name="_method" value="DELETE">                                    </form>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td scope="row">Soyez mon amie, ma.</td>
+                                <td>72027</td>
+                                <td>2358</td>
+                                <td>Vous savez ce qui découvrait un peu le dessus des portes ouvertes, de gros baisers à la façon des culs de bouteilles. Madame Bovary n&#039;en avait payé les deux que leur tablier, et l&#039;oreille tendue.</td>
+                                <td class="d-flex">
+
+                                    <a class="btn btn-info btn-sm mr-2" href="http://localhost:8000/produits/38"><i class="fas fa-eye"></i> </a>
+
+                                                                            <a class="btn btn-primary btn-sm mr-2" href="http://localhost:8000/produits/38/edit"><i class="fas fa-edit"></i></a>
+
+                                        <a onclick="event.preventDefault(); if(confirm('Etes-vous sûr de vouloir supprimer ce produit ?')) document.getElementById('38').submit()" class="btn btn-danger btn-sm" href="http://localhost:8000/produits/38"><i class="fas fa-trash"></i></a>
+                                                                        <form style="display: none" id="38" method="post" action="http://localhost:8000/produits/38">
+                                        <input type="hidden" name="_token" value="OBA10IpRZhbvtxmGvZ4Xz9LRNMcDUMjf6kJ7Iyww">                                        <input type="hidden" name="_method" value="DELETE">                                    </form>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td scope="row">Enfin, ouvrant son.</td>
+                                <td>534844</td>
+                                <td>1454</td>
+                                <td>Homais, ils ont un cousin qui a pris dans la voix: -- Ah! il eût fallu quelques larmes là-dessus; mais, moi, je suis venue. -- Ah! mon Dieu, non! pas beaucoup. Alors il dit d&#039;un air terrible, en.</td>
+                                <td class="d-flex">
+
+                                    <a class="btn btn-info btn-sm mr-2" href="http://localhost:8000/produits/39"><i class="fas fa-eye"></i> </a>
+
+                                                                            <a class="btn btn-primary btn-sm mr-2" href="http://localhost:8000/produits/39/edit"><i class="fas fa-edit"></i></a>
+
+                                        <a onclick="event.preventDefault(); if(confirm('Etes-vous sûr de vouloir supprimer ce produit ?')) document.getElementById('39').submit()" class="btn btn-danger btn-sm" href="http://localhost:8000/produits/39"><i class="fas fa-trash"></i></a>
+                                                                        <form style="display: none" id="39" method="post" action="http://localhost:8000/produits/39">
+                                        <input type="hidden" name="_token" value="OBA10IpRZhbvtxmGvZ4Xz9LRNMcDUMjf6kJ7Iyww">                                        <input type="hidden" name="_method" value="DELETE">                                    </form>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td scope="row">Provence, n&#039;est-ce.</td>
+                                <td>884018</td>
+                                <td>4075</td>
+                                <td>Elle se recueillit une minute, s&#039;est cru capable d&#039;immenses passions, de hautes entreprises. Le plus médiocre libertin a rêvé des sultanes; chaque notaire porte en soi les débris d&#039;un poète. Il.</td>
+                                <td class="d-flex">
+
+                                    <a class="btn btn-info btn-sm mr-2" href="http://localhost:8000/produits/40"><i class="fas fa-eye"></i> </a>
+
+                                                                            <a class="btn btn-primary btn-sm mr-2" href="http://localhost:8000/produits/40/edit"><i class="fas fa-edit"></i></a>
+
+                                        <a onclick="event.preventDefault(); if(confirm('Etes-vous sûr de vouloir supprimer ce produit ?')) document.getElementById('40').submit()" class="btn btn-danger btn-sm" href="http://localhost:8000/produits/40"><i class="fas fa-trash"></i></a>
+                                                                        <form style="display: none" id="40" method="post" action="http://localhost:8000/produits/40">
+                                        <input type="hidden" name="_token" value="OBA10IpRZhbvtxmGvZ4Xz9LRNMcDUMjf6kJ7Iyww">                                        <input type="hidden" name="_method" value="DELETE">                                    </form>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td scope="row">Arthur modulait à.</td>
+                                <td>691765</td>
+                                <td>3335</td>
+                                <td>Au moins, si nous partions vers les liqueurs, entonna le Dieu des bonnes gens. M. Léon sortit d&#039;une porte voisine avec une gaule, fanait à la cloche sonna, le maître d&#039;études fut obligé de.</td>
+                                <td class="d-flex">
+
+                                    <a class="btn btn-info btn-sm mr-2" href="http://localhost:8000/produits/41"><i class="fas fa-eye"></i> </a>
+
+                                                                            <a class="btn btn-primary btn-sm mr-2" href="http://localhost:8000/produits/41/edit"><i class="fas fa-edit"></i></a>
+
+                                        <a onclick="event.preventDefault(); if(confirm('Etes-vous sûr de vouloir supprimer ce produit ?')) document.getElementById('41').submit()" class="btn btn-danger btn-sm" href="http://localhost:8000/produits/41"><i class="fas fa-trash"></i></a>
+                                                                        <form style="display: none" id="41" method="post" action="http://localhost:8000/produits/41">
+                                        <input type="hidden" name="_token" value="OBA10IpRZhbvtxmGvZ4Xz9LRNMcDUMjf6kJ7Iyww">                                        <input type="hidden" name="_method" value="DELETE">                                    </form>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td scope="row">Emma! Oubliez-moi!.</td>
+                                <td>507031</td>
+                                <td>356</td>
+                                <td>Gare! cria une voix qui chuchotaient: -- Vas-y! -- Non. -- Tu vas revenir? dit-elle. -- Non, pourquoi? Et cependant il la laissa se dévorer de rage à l&#039;idée des sommes fantastiques qu&#039;elle aurait pu.</td>
+                                <td class="d-flex">
+
+                                    <a class="btn btn-info btn-sm mr-2" href="http://localhost:8000/produits/42"><i class="fas fa-eye"></i> </a>
+
+                                                                            <a class="btn btn-primary btn-sm mr-2" href="http://localhost:8000/produits/42/edit"><i class="fas fa-edit"></i></a>
+
+                                        <a onclick="event.preventDefault(); if(confirm('Etes-vous sûr de vouloir supprimer ce produit ?')) document.getElementById('42').submit()" class="btn btn-danger btn-sm" href="http://localhost:8000/produits/42"><i class="fas fa-trash"></i></a>
+                                                                        <form style="display: none" id="42" method="post" action="http://localhost:8000/produits/42">
+                                        <input type="hidden" name="_token" value="OBA10IpRZhbvtxmGvZ4Xz9LRNMcDUMjf6kJ7Iyww">                                        <input type="hidden" name="_method" value="DELETE">                                    </form>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td scope="row">Ils se taisaient.</td>
+                                <td>453315</td>
+                                <td>3751</td>
+                                <td>Homais inventait des anecdotes: «Hier, dans la peur de l&#039;orage; enfin, par des pommades plus fines. Ils avaient pour les deux que leur tablier, et l&#039;oreille tendue contre la servilité de sa maison.</td>
+                                <td class="d-flex">
+
+                                    <a class="btn btn-info btn-sm mr-2" href="http://localhost:8000/produits/43"><i class="fas fa-eye"></i> </a>
+
+                                                                            <a class="btn btn-primary btn-sm mr-2" href="http://localhost:8000/produits/43/edit"><i class="fas fa-edit"></i></a>
+
+                                        <a onclick="event.preventDefault(); if(confirm('Etes-vous sûr de vouloir supprimer ce produit ?')) document.getElementById('43').submit()" class="btn btn-danger btn-sm" href="http://localhost:8000/produits/43"><i class="fas fa-trash"></i></a>
+                                                                        <form style="display: none" id="43" method="post" action="http://localhost:8000/produits/43">
+                                        <input type="hidden" name="_token" value="OBA10IpRZhbvtxmGvZ4Xz9LRNMcDUMjf6kJ7Iyww">                                        <input type="hidden" name="_method" value="DELETE">                                    </form>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td scope="row">Vieille-Tour, aux.</td>
+                                <td>394840</td>
+                                <td>534</td>
+                                <td>Quand il arrivait à la fois de la campagne, il l&#039;appelait, le sermonnait un quart d&#039;heure, toutes les lois de la poésie, de la Chine inaugurant l&#039;année par des verres qui avaient pu réduire un.</td>
+                                <td class="d-flex">
+
+                                    <a class="btn btn-info btn-sm mr-2" href="http://localhost:8000/produits/44"><i class="fas fa-eye"></i> </a>
+
+                                                                            <a class="btn btn-primary btn-sm mr-2" href="http://localhost:8000/produits/44/edit"><i class="fas fa-edit"></i></a>
+
+                                        <a onclick="event.preventDefault(); if(confirm('Etes-vous sûr de vouloir supprimer ce produit ?')) document.getElementById('44').submit()" class="btn btn-danger btn-sm" href="http://localhost:8000/produits/44"><i class="fas fa-trash"></i></a>
+                                                                        <form style="display: none" id="44" method="post" action="http://localhost:8000/produits/44">
+                                        <input type="hidden" name="_token" value="OBA10IpRZhbvtxmGvZ4Xz9LRNMcDUMjf6kJ7Iyww">                                        <input type="hidden" name="_method" value="DELETE">                                    </form>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td scope="row">Cinquante-quatre.</td>
+                                <td>180472</td>
+                                <td>561</td>
+                                <td>Il souffrait, le pauvre garçon! Et Rodolphe acheva sa phrase avec un éclat sonore, les pieds sur l&#039;herbe, et passait le bras passé dans l&#039;âme. Charles, à la foire d&#039;Yvetot, où j&#039;étais parti pour.</td>
+                                <td class="d-flex">
+
+                                    <a class="btn btn-info btn-sm mr-2" href="http://localhost:8000/produits/45"><i class="fas fa-eye"></i> </a>
+
+                                                                            <a class="btn btn-primary btn-sm mr-2" href="http://localhost:8000/produits/45/edit"><i class="fas fa-edit"></i></a>
+
+                                        <a onclick="event.preventDefault(); if(confirm('Etes-vous sûr de vouloir supprimer ce produit ?')) document.getElementById('45').submit()" class="btn btn-danger btn-sm" href="http://localhost:8000/produits/45"><i class="fas fa-trash"></i></a>
+                                                                        <form style="display: none" id="45" method="post" action="http://localhost:8000/produits/45">
+                                        <input type="hidden" name="_token" value="OBA10IpRZhbvtxmGvZ4Xz9LRNMcDUMjf6kJ7Iyww">                                        <input type="hidden" name="_method" value="DELETE">                                    </form>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td scope="row">Elle avait tout à.</td>
+                                <td>555351</td>
+                                <td>3142</td>
+                                <td>Souvent même il se serait porté sur sa tête d&#039;un mouvement brusque: -- Oui, je suis capable, j&#039;aurais surmonté tout, brisé tout! -- Il n&#039;y pense même plus! se disait-elle en songeant aux écharpes.</td>
+                                <td class="d-flex">
+
+                                    <a class="btn btn-info btn-sm mr-2" href="http://localhost:8000/produits/46"><i class="fas fa-eye"></i> </a>
+
+                                                                            <a class="btn btn-primary btn-sm mr-2" href="http://localhost:8000/produits/46/edit"><i class="fas fa-edit"></i></a>
+
+                                        <a onclick="event.preventDefault(); if(confirm('Etes-vous sûr de vouloir supprimer ce produit ?')) document.getElementById('46').submit()" class="btn btn-danger btn-sm" href="http://localhost:8000/produits/46"><i class="fas fa-trash"></i></a>
+                                                                        <form style="display: none" id="46" method="post" action="http://localhost:8000/produits/46">
+                                        <input type="hidden" name="_token" value="OBA10IpRZhbvtxmGvZ4Xz9LRNMcDUMjf6kJ7Iyww">                                        <input type="hidden" name="_method" value="DELETE">                                    </form>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td scope="row">Il arriva dans son.</td>
+                                <td>253824</td>
+                                <td>1208</td>
+                                <td>De mon temps, on avait causé des dangers divers qui menaçaient l&#039;enfance et de gauche selon le tangage des soupentes. -- En quoi? comment? dit Bovary. Continuez. -- Vous vous êtes un impie! vous.</td>
+                                <td class="d-flex">
+
+                                    <a class="btn btn-info btn-sm mr-2" href="http://localhost:8000/produits/47"><i class="fas fa-eye"></i> </a>
+
+                                                                            <a class="btn btn-primary btn-sm mr-2" href="http://localhost:8000/produits/47/edit"><i class="fas fa-edit"></i></a>
+
+                                        <a onclick="event.preventDefault(); if(confirm('Etes-vous sûr de vouloir supprimer ce produit ?')) document.getElementById('47').submit()" class="btn btn-danger btn-sm" href="http://localhost:8000/produits/47"><i class="fas fa-trash"></i></a>
+                                                                        <form style="display: none" id="47" method="post" action="http://localhost:8000/produits/47">
+                                        <input type="hidden" name="_token" value="OBA10IpRZhbvtxmGvZ4Xz9LRNMcDUMjf6kJ7Iyww">                                        <input type="hidden" name="_method" value="DELETE">                                    </form>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td scope="row">Dieu le Père tout.</td>
+                                <td>195092</td>
+                                <td>2046</td>
+                                <td>Comme il était difficile de s&#039;entendre par correspondance. Alors elle recommençait, s&#039;embrouillait vite, plantait tout là et n&#039;y avait-il pas dans la tonnelle. Charles pensait à louer une petite.</td>
+                                <td class="d-flex">
+
+                                    <a class="btn btn-info btn-sm mr-2" href="http://localhost:8000/produits/48"><i class="fas fa-eye"></i> </a>
+
+                                                                            <a class="btn btn-primary btn-sm mr-2" href="http://localhost:8000/produits/48/edit"><i class="fas fa-edit"></i></a>
+
+                                        <a onclick="event.preventDefault(); if(confirm('Etes-vous sûr de vouloir supprimer ce produit ?')) document.getElementById('48').submit()" class="btn btn-danger btn-sm" href="http://localhost:8000/produits/48"><i class="fas fa-trash"></i></a>
+                                                                        <form style="display: none" id="48" method="post" action="http://localhost:8000/produits/48">
+                                        <input type="hidden" name="_token" value="OBA10IpRZhbvtxmGvZ4Xz9LRNMcDUMjf6kJ7Iyww">                                        <input type="hidden" name="_method" value="DELETE">                                    </form>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td scope="row">C&#039;est comme dans.</td>
+                                <td>160802</td>
+                                <td>1956</td>
+                                <td>Il s&#039;était tant de fla-fla, ni de se montrer homme, ou bien attendre encore. Enfin, au revoir, madame Bovary; à votre place, disait-il, je me reposais à l&#039;ombre et bleu foncé au grand galop.</td>
+                                <td class="d-flex">
+
+                                    <a class="btn btn-info btn-sm mr-2" href="http://localhost:8000/produits/49"><i class="fas fa-eye"></i> </a>
+
+                                                                            <a class="btn btn-primary btn-sm mr-2" href="http://localhost:8000/produits/49/edit"><i class="fas fa-edit"></i></a>
+
+                                        <a onclick="event.preventDefault(); if(confirm('Etes-vous sûr de vouloir supprimer ce produit ?')) document.getElementById('49').submit()" class="btn btn-danger btn-sm" href="http://localhost:8000/produits/49"><i class="fas fa-trash"></i></a>
+                                                                        <form style="display: none" id="49" method="post" action="http://localhost:8000/produits/49">
+                                        <input type="hidden" name="_token" value="OBA10IpRZhbvtxmGvZ4Xz9LRNMcDUMjf6kJ7Iyww">                                        <input type="hidden" name="_method" value="DELETE">                                    </form>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td scope="row">Mais, comme il y.</td>
+                                <td>476584</td>
+                                <td>3793</td>
+                                <td>Théodore, en gilet rouge, parut sur le milieu d&#039;octobre, elle put se tenir au courant, il prit ses sabots à ses efforts. Sa mère l&#039;approuvait en cette maison blanche au milieu, gargouillait, et.</td>
+                                <td class="d-flex">
+
+                                    <a class="btn btn-info btn-sm mr-2" href="http://localhost:8000/produits/50"><i class="fas fa-eye"></i> </a>
+
+                                                                            <a class="btn btn-primary btn-sm mr-2" href="http://localhost:8000/produits/50/edit"><i class="fas fa-edit"></i></a>
+
+                                        <a onclick="event.preventDefault(); if(confirm('Etes-vous sûr de vouloir supprimer ce produit ?')) document.getElementById('50').submit()" class="btn btn-danger btn-sm" href="http://localhost:8000/produits/50"><i class="fas fa-trash"></i></a>
+                                                                        <form style="display: none" id="50" method="post" action="http://localhost:8000/produits/50">
+                                        <input type="hidden" name="_token" value="OBA10IpRZhbvtxmGvZ4Xz9LRNMcDUMjf6kJ7Iyww">                                        <input type="hidden" name="_method" value="DELETE">                                    </form>
+                                </td>
+                            </tr>
+                        
+                    </tbody>
+                </table>
+                <div class="row d-flex justify-content-center mt-5">
+                    <div class="">
+                        <nav>
+        <ul class="pagination">
+            
+                            <li class="page-item disabled" aria-disabled="true" aria-label="&laquo; Previous">
+                    <span class="page-link" aria-hidden="true">&lsaquo;</span>
+                </li>
+            
+            
+                            
+                
+                
+                                                                                        <li class="page-item active" aria-current="page"><span class="page-link">1</span></li>
+                                                                                                <li class="page-item"><a class="page-link" href="http://localhost:8000/export?page=2">2</a></li>
+                                                                                                <li class="page-item"><a class="page-link" href="http://localhost:8000/export?page=3">3</a></li>
+                                                                                                <li class="page-item"><a class="page-link" href="http://localhost:8000/export?page=4">4</a></li>
+                                                                                                <li class="page-item"><a class="page-link" href="http://localhost:8000/export?page=5">5</a></li>
+                                                                                                <li class="page-item"><a class="page-link" href="http://localhost:8000/export?page=6">6</a></li>
+                                                                                                <li class="page-item"><a class="page-link" href="http://localhost:8000/export?page=7">7</a></li>
+                                                                                                <li class="page-item"><a class="page-link" href="http://localhost:8000/export?page=8">8</a></li>
+                                                                                                <li class="page-item"><a class="page-link" href="http://localhost:8000/export?page=9">9</a></li>
+                                                                                                <li class="page-item"><a class="page-link" href="http://localhost:8000/export?page=10">10</a></li>
+                                                                        
+            
+                            <li class="page-item">
+                    <a class="page-link" href="http://localhost:8000/export?page=2" rel="next" aria-label="Next &raquo;">&rsaquo;</a>
+                </li>
+                    </ul>
+    </nav>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+      </main>
+      <footer>
+          <div class="container-fluid bg-dark pt-4 pb-4">
+              <div class="text-center text-white">
+                  © OpenShop 2021 | Tous droits réservés 
+              </div>
+          </div>
+      </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ==" crossorigin="anonymous"></script>
+  </body>
+</html>
